@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html ng-app="blogApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blogging Portal</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+      html       { overflow-y    : scroll; }
+      body       { padding-top   : 50px;   }
+      #blog-form { margin-top    : 30px;   }
+      #todo-form { margin-bottom : 50px;   }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="core.js"></script>
+  </head>
+
+  <body ng-controller="mainController">
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Blogging is addictive <span class="label label-info">{{ blogs.length }}</span></h1>
+      </div>
+      <div id="blog-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <div class="checkbox" ng-repeat="blog in blogs">
+            <label>
+              <button type="submit" class="btn btn-default" ng-click="deleteBlog(blog._id)">Delete</button>{{ blog.text }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form to create todos -->
+      <div id="blog-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+            <div class="form-group">
+              <input type="text" class = "form-control input-lg text-center" placeholder="Time for a new Blog" ng-model="formData.text">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center text-muted">
+        <p>A simple blogging application using Node.js, angular and MongoDB"</p>
+        <p><a href="https://github.com/sauravbiswasiupr">My github page</a></p>
+      </div>
+    </body>
+  </html>
+

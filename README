@@ -1,0 +1,1 @@
+A bare bones blogging app using Node.js, MongoDB and Angular. The Node.js code handles the requests to the Models(MongoDB), and sends responses back which are rendered in the front end using AngularJS. Styled up a bit with a sprinking of CSS bootstrap.
