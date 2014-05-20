@@ -11,9 +11,17 @@
       body       { padding-top   : 50px;   }
       #blog-form { margin-top    : 30px;   }
       #todo-form { margin-bottom : 50px;   }
+      #draggable { background-color:#F78757; border: #F78757; border-radius: 5px solid #F78757; }
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="core.js"></script>
+    <script>
+      $(function() {
+        $("#draggable").draggable();
+      });
+    </script>
   </head>
 
   <body ng-controller="mainController">
@@ -25,7 +33,10 @@
         <div class="col-sm-4 col-sm-offset-4">
           <div class="checkbox" ng-repeat="blog in blogs">
             <label>
-              <button type="submit" class="btn btn-default" ng-click="deleteBlog(blog._id)">Delete</button>{{ blog.text }}
+              <div id = "draggable" class="container" style="background-color:#F78757; border: #F78757; border-radius: 5px solid #F78757;">
+                <p>{{ blog.text }}</p>
+                <button type="submit" class="btn btn-default" ng-click="deleteBlog(blog._id)">Delete</button>
+              </div>
             </label>
           </div>
         </div>
